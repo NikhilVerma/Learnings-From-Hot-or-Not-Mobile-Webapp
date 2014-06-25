@@ -4,10 +4,10 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>reveal.js - The HTML Presentation Framework</title>
+		<title>Hot or Not - Learnings</title>
 
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
+		<meta name="description" content="">
+		<meta name="author" content="Nikhil Verma">
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -38,28 +38,151 @@
 
 	<body>
 
+<!--
+                    <p>
+                        <small><a href="http://nikhil-verma.com">Nikhil Verma</a> / <a href="http://twitter.com/NikhilVerma">@NikhilVerma</a></small>
+                    </p> -->
+
 		<div class="reveal" >
 
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
-				<section data-transition="zoom" data-background="url(/img/background-blue.jpg)" data-background-size="cover" data-background-repeat="no-repeat">
-					<h1>Making <br/> <a target="_blank" href="https://m.hotornot.com/">Hot or Not</a></h1>
+				<section data-transition="concave" data-background="url(/img/background-blue.jpg)" data-background-size="cover" data-background-repeat="no-repeat">
+					<h1>Making <br/> <a target="_blank" href="https://m.hotornot.com/" class="hon-logo">Hot or Not</a></h1>
 					<h3>What we learned from building a complex web application</h3>
-					<p>
-						<small><a href="http://nikhil-verma.com">Nikhil Verma</a> / <a href="http://twitter.com/NikhilVerma">@NikhilVerma</a></small>
-					</p>
 				</section>
 
-                <section data-transition="zoom">
-                    <h1>Brief History</h1>
+                <section data-transition="concave">
+                    <section>
+                        <h1>Brief History</h1>
+                    </section>
+
+                    <section>
+                        <h2>2002</h2>
+                        <img src="img/hotornot-first.png" class="stretch fragment" alt="First release of Hot or Not" />
+                    </section>
+
+                    <section>
+                        <h2>2010</h2>
+                        <img src="img/hotornot-second.png" class="stretch fragment" alt="Second release of Hot or Not" />
+                    </section>
+
+                    <section>
+                        <h2>2014</h2>
+                        <img src="img/hotornot-third.png" class="stretch fragment" alt="Third release of Hot or Not" />
+                    </section>
                 </section>
 
-                <section class="test" data-transition="zoom">
-                    <h2>2002</h2>
-                    <img src="img/hotornot-first.png" class="stretch" alt="First release of Hot or Not" />
+
+                <section data-transition="concave">
+                    <section>
+                        <h1>Going Mobile</h1>
+                    </section>
+                    <section>
+                        <h2>Problems</h2>
+                        <ul>
+                            <li class="fragment">Recently acquired</li>
+                            <li class="fragment">Competitior in the market</li>
+                            <li class="fragment">Release ASAP</li>
+                            <li class="fragment">Mobile as the leading platform</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Solutions</h2>
+                        <ul>
+                            <li class="fragment">Develop for mobile web. Wrap it for native.</li>
+                            <li class="fragment">Uninspired design</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <img src="img/us-vs-them.png" class="stretch" />
+                    </section>
+                    <section>
+                        <img src="img/hotornot-today.png" class="stretch" />
+                    </section>
+                </section>
+
+
+                <section data-transition="concave">
+                    <section>
+                        <h1>Native Wrappers</h1>
+                        <span>Using Cordova/Phonegap</span>
+
+                        <aside class="notes">
+                            Explain what is cordova.
+                        </aside>
+                    </section>
+
+                    <section>
+                        <img src="/img/cordova-chart.png" class="stretch" />
+                        <small><a href="https://basicallydan.github.io/phonegap-not-so-bad-talk">@ Daniel Hough</a></small>
+                    </section>
+
+                    <section>
+                        <h2>Cordova/Phonegap</h2>
+                        <ul>
+                            <li class="fragment">If you can perfect the wrapper</li>
+                            <li class="fragment">Use it as little as possible</li>
+                        </ul>
+                        <aside class="notes">
+                            Talk about wrapper incremental updates and it's slow speed when downloading manifest files.
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h2>Problems</h2>
+                        <ul>
+                            <li class="fragment">Faster to just open the website</li>
+                            <li class="fragment">Unreliable Push/Updating mechanism</li>
+                            <li class="fragment">Subpar performance on Android WebViews</li>
+                        </ul>
+                        <aside class="notes">
+                            WebView performance meant a native android port was needed anyway.
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h1>Cordova is dead<br/>Long live Cordova</h1>
+                    </section>
+                </section>
+
+
+                <section data-transition="concave">
+                    <section>
+                        <h1>Mobile Web</h1>
+                        <img src="/img/ios-safari.png" class="fragment icon" />
+                        <img src="/img/google-chrome.png" class="fragment icon" />
+                        <img src="/img/android-stock.png" class="fragment icon" />
+                    </section>
+
+                    <section>
+                        <img src="/img/cordova-chart.png" class="stretch" />
+                        <small><a href="https://basicallydan.github.io/phonegap-not-so-bad-talk">@ Daniel Hough</a></small>
+                    </section>
+
+                    <section>
+                        <h2>Cordova/Phonegap</h2>
+                        <ul>
+                            <li class="fragment">If you can perfect the wrapper</li>
+                            <li class="fragment">Use it as little as possible</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2>Problems</h2>
+                        <ul>
+                            <li class="fragment">Faster to just open the website</li>
+                            <li class="fragment">Unreliable Push/Updating mechanism</li>
+                            <li class="fragment">Subpar performance on Android WebViews</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h1>Cordova is dead<br/>Long live Cordova</h1>
+                    </section>
 
                     <aside class="notes">
-                        Not the most beautiful page in this world.
+                        Stock android browser has changed now.
                     </aside>
                 </section>
 
