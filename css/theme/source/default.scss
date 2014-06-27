@@ -2,6 +2,7 @@
 @import "../../reveal";
 @import "../template/mixins";
 @import "../template/settings";
+@import "../../bourbon/bourbon";
 // ---------------------------------------------
 
 
@@ -37,36 +38,59 @@ $slideheight: 700;
 
 // Background generator
 @mixin bodyBackground() {
-    @include radial-gradient(#4251a4, #56a3d1);
+    @include radial-gradient(#56a3d1, #4251a4);
 }
 
 // Theme template ------------------------------
 @import "../template/theme";
 // ---------------------------------------------
 
-.h1 {
-    @extend h1;
-}
-
-.h2 {
-    @extend h2;
-}
-
-.h3 {
-    @extend h3;
-}
-
-.h4 {
-    @extend h4;
+@include keyframes(rotate3d) {
+    0% {
+        @include transform(perspective(5000) rotate3d(0, 1, 0, 0deg));
+        @include transform-origin(50% 50%);
+    }
+    100% {
+        @include transform(perspective(5000) rotate3d(0, 1, 0, 360deg));
+        @include transform-origin(50% 50%);
+    }
 }
 
 #body .reveal {
+    .h1 {
+        @extend h1;
+    }
+
+    .h2 {
+        @extend h2;
+    }
+
+    .h3 {
+        @extend h3;
+    }
+
+    .h4 {
+        @extend h4;
+    }
+
+    .block {
+        display: block;
+    }
+
+    .left {
+        text-align: left;
+    }
+
     section {
         img {
             border: 0;
             margin: 0;
             background: transparent;
             box-shadow: none;
+        }
+
+        sup {
+            font-size: 0.5em;
         }
 
         .has-side-video {
@@ -98,6 +122,36 @@ $slideheight: 700;
             width: 50%;
             text-align: center;
         }
+    }
+
+
+    .backface-container {
+        @include clearfix;
+    }
+
+    .backface {
+        @include backface-visibility(hidden);
+        @include animation(rotate3d 10s linear);
+        @include animation-iteration-count(infinite);
+        @include box-sizing(border-box);
+
+        float: left;
+        margin: 1em 10%;
+        height: 300px;
+        width: 30%;
+        background: rgba(0,0,0,0.5);
+
+        &.visible {
+            @include backface-visibility(visible);
+        }
+    }
+
+    .half {
+        width: 50%;
+    }
+
+    .centered {
+        margin: 0 auto;
     }
 
     .hon-logo {

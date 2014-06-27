@@ -11,7 +11,7 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic);
 html, body, .reveal div, .reveal span, .reveal applet, .reveal object, .reveal iframe,
 .reveal h1,
-.reveal .h1, .reveal h2, .reveal .h2, .reveal h3, .reveal .h3, .reveal h4, .reveal .h4, .reveal h5, .reveal h6, .reveal p, .reveal blockquote, .reveal pre,
+#body .reveal .h1, .reveal h2, #body .reveal .h2, .reveal h3, #body .reveal .h3, .reveal h4, #body .reveal .h4, .reveal h5, .reveal h6, .reveal p, .reveal blockquote, .reveal pre,
 .reveal a, .reveal abbr, .reveal acronym, .reveal address, .reveal big, .reveal cite, .reveal code,
 .reveal del, .reveal dfn, .reveal em, .reveal img, .reveal ins, .reveal kbd, .reveal q, .reveal s, .reveal samp,
 .reveal small, .reveal strike, .reveal strong, .reveal sub, .reveal sup, .reveal tt, .reveal var,
@@ -55,13 +55,13 @@ body {
 /*********************************************
  * HEADERS
  *********************************************/
-.reveal h1, .reveal .h1,
+.reveal h1, #body .reveal .h1,
 .reveal h2,
-.reveal .h2,
+#body .reveal .h2,
 .reveal h3,
-.reveal .h3,
+#body .reveal .h3,
 .reveal h4,
-.reveal .h4,
+#body .reveal .h4,
 .reveal h5,
 .reveal h6 {
   -webkit-hyphens: auto;
@@ -70,16 +70,16 @@ body {
   word-wrap: break-word;
   line-height: 1; }
 
-.reveal h1, .reveal .h1 {
+.reveal h1, #body .reveal .h1 {
   font-size: 3.77em; }
 
-.reveal h2, .reveal .h2 {
+.reveal h2, #body .reveal .h2 {
   font-size: 2.11em; }
 
-.reveal h3, .reveal .h3 {
+.reveal h3, #body .reveal .h3 {
   font-size: 1.55em; }
 
-.reveal h4, .reveal .h4 {
+.reveal h4, #body .reveal .h4 {
   font-size: 1em; }
 
 /*********************************************
@@ -1316,13 +1316,13 @@ body {
  *********************************************/
 .reveal.rtl .slides,
 .reveal.rtl .slides h1,
-.reveal.rtl .slides .h1,
+#body .reveal.rtl .slides .h1,
 .reveal.rtl .slides h2,
-.reveal.rtl .slides .h2,
+#body .reveal.rtl .slides .h2,
 .reveal.rtl .slides h3,
-.reveal.rtl .slides .h3,
+#body .reveal.rtl .slides .h3,
 .reveal.rtl .slides h4,
-.reveal.rtl .slides .h4,
+#body .reveal.rtl .slides .h4,
 .reveal.rtl .slides h5,
 .reveal.rtl .slides h6 {
   direction: rtl;
@@ -1594,13 +1594,9 @@ body {
  * GLOBAL STYLES
  *********************************************/
 body {
-  background: #4251a4;
-  background: -moz-radial-gradient(center, circle cover, #56a3d1 0%, #4251a4 100%);
-  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #56a3d1), color-stop(100%, #4251a4));
-  background: -webkit-radial-gradient(center, circle cover, #56a3d1 0%, #4251a4 100%);
-  background: -o-radial-gradient(center, circle cover, #56a3d1 0%, #4251a4 100%);
-  background: -ms-radial-gradient(center, circle cover, #56a3d1 0%, #4251a4 100%);
-  background: radial-gradient(center, circle cover, #56a3d1 0%, #4251a4 100%);
+  background-color: #56a3d1;
+  background-image: -webkit-radial-gradient(#56a3d1, #4251a4);
+  background-image: radial-gradient(  #56a3d1, #4251a4);
   background-color: #f7f3de; }
 
 .reveal {
@@ -1618,13 +1614,13 @@ body {
 /*********************************************
  * HEADERS
  *********************************************/
-.reveal h1, .reveal .h1,
+.reveal h1, #body .reveal .h1,
 .reveal h2,
-.reveal .h2,
+#body .reveal .h2,
 .reveal h3,
-.reveal .h3,
+#body .reveal .h3,
 .reveal h4,
-.reveal .h4,
+#body .reveal .h4,
 .reveal h5,
 .reveal h6 {
   margin: 0 0 20px 0;
@@ -1635,7 +1631,7 @@ body {
   text-transform: uppercase;
   text-shadow: none; }
 
-.reveal h1, .reveal .h1 {
+.reveal h1, #body .reveal .h1 {
   text-shadow: 0 1px 0 #cccccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbbbbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaaaaa, 0 6px 1px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.25), 0 20px 20px rgba(0, 0, 0, 0.15); }
 
 /*********************************************
@@ -1729,11 +1725,57 @@ body {
 .reveal .slide-number {
   color: white; }
 
+@-webkit-keyframes rotate3d {
+  0% {
+    -webkit-transform: perspective(5000) rotate3d(0, 1, 0, 0deg);
+    -webkit-transform-origin: 50% 50%; }
+
+  100% {
+    -webkit-transform: perspective(5000) rotate3d(0, 1, 0, 360deg);
+    -webkit-transform-origin: 50% 50%; } }
+@-moz-keyframes rotate3d {
+  0% {
+    -moz-transform: perspective(5000) rotate3d(0, 1, 0, 0deg);
+    -moz-transform-origin: 50% 50%; }
+
+  100% {
+    -moz-transform: perspective(5000) rotate3d(0, 1, 0, 360deg);
+    -moz-transform-origin: 50% 50%; } }
+@keyframes rotate3d {
+  0% {
+    -webkit-transform: perspective(5000) rotate3d(0, 1, 0, 0deg);
+    -moz-transform: perspective(5000) rotate3d(0, 1, 0, 0deg);
+    -ms-transform: perspective(5000) rotate3d(0, 1, 0, 0deg);
+    -o-transform: perspective(5000) rotate3d(0, 1, 0, 0deg);
+    transform: perspective(5000) rotate3d(0, 1, 0, 0deg);
+    -webkit-transform-origin: 50% 50%;
+    -moz-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    -o-transform-origin: 50% 50%;
+    transform-origin: 50% 50%; }
+
+  100% {
+    -webkit-transform: perspective(5000) rotate3d(0, 1, 0, 360deg);
+    -moz-transform: perspective(5000) rotate3d(0, 1, 0, 360deg);
+    -ms-transform: perspective(5000) rotate3d(0, 1, 0, 360deg);
+    -o-transform: perspective(5000) rotate3d(0, 1, 0, 360deg);
+    transform: perspective(5000) rotate3d(0, 1, 0, 360deg);
+    -webkit-transform-origin: 50% 50%;
+    -moz-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    -o-transform-origin: 50% 50%;
+    transform-origin: 50% 50%; } }
+#body .reveal .block {
+  display: block; }
+#body .reveal .left {
+  text-align: left; }
 #body .reveal section img {
   border: 0;
   margin: 0;
   background: transparent;
   box-shadow: none; }
+#body .reveal section sup {
+  font-size: 0.5em; }
 #body .reveal section .has-side-video {
   display: flex;
   align-items: center;
@@ -1753,6 +1795,34 @@ body {
   #body .reveal table td {
     width: 50%;
     text-align: center; }
+#body .reveal .backface-container:after {
+  content: "";
+  display: table;
+  clear: both; }
+#body .reveal .backface {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-animation: rotate3d 10s linear;
+  -moz-animation: rotate3d 10s linear;
+  animation: rotate3d 10s linear;
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  float: left;
+  margin: 1em 10%;
+  height: 300px;
+  width: 30%;
+  background: rgba(0, 0, 0, 0.5); }
+  #body .reveal .backface.visible {
+    -webkit-backface-visibility: visible;
+    backface-visibility: visible; }
+#body .reveal .half {
+  width: 50%; }
+#body .reveal .centered {
+  margin: 0 auto; }
 #body .reveal .hon-logo {
   height: 0;
   overflow: hidden;

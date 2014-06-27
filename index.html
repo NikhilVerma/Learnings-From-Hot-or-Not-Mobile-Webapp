@@ -73,36 +73,22 @@
                 </section>
 
                 <section>
-                    <h2>2014</h2>
-                    <img src="img/hotornot-third.png" class="stretch" alt="Third release of Hot or Not" />
-                </section>
-            </section>
-
-
-            <section data-transition="concave">
-                <section>
-                    <h1>Mobile First</h1>
-                </section>
-                <section>
-                    <h2>Problems</h2>
+                    <h2>Relaunched in 2013 by Badoo for Mobile</h2>
                     <ul>
-                        <li class="fragment">Recently acquired</li>
-                        <li class="fragment">Competitior in the market</li>
-                        <li class="fragment">Release ASAP</li>
-                        <li class="fragment">Mobile as the leading platform</li>
+                        <li>Developed for mobile web, wrapped for native</li>
+                        <li>Design had to take a back seat</li>
                     </ul>
+
+                    <aside class="notes">
+                        Needed to launch ASAP because of a competitior
+                    </aside>
                 </section>
-                <section>
-                    <h2>Solutions</h2>
-                    <ul>
-                        <li class="fragment">Develop for mobile web. Wrap it for native.</li>
-                        <li class="fragment">Uninspired design</li>
-                    </ul>
-                </section>
+
                 <section>
                     <img src="img/us-vs-them.png" class="stretch" />
                 </section>
             </section>
+
 
             <section data-transition="concave">
                 <section>
@@ -111,17 +97,26 @@
 
                     <aside class="notes">
                         Explain what is cordova.
+                        Why we needed it?
+                        === Self contained app
+                        === Wanted to hide the browser UI
+                        === Self update like web
                     </aside>
                 </section>
 
                 <section>
                     <img src="/img/cordova-chart.png" class="stretch" />
-                    <small><a href="https://basicallydan.github.io/phonegap-not-so-bad-talk">@ Daniel Hough</a>
-                    </small>
+                    <br/>
+                    <small><a href="https://basicallydan.github.io/phonegap-not-so-bad-talk">@ Daniel Hough</a></small>
+
+                    <aside class="notes">
+                        Daniel mentioned that for a web developer who is short on time Phonegap is OK.
+                        And we were. But Phonegap is not all that bad.
+                    </aside>
                 </section>
 
                 <section>
-                    <h2>Cordova/Phonegap</h2>
+                    <h2>Use Cordova/Phonegap</h2>
                     <ul>
                         <li class="fragment">If you can perfect the wrapper</li>
                         <li class="fragment">Use it as little as possible</li>
@@ -134,8 +129,7 @@
                 <section>
                     <h2>Problems</h2>
                     <ul>
-                        <li class="fragment">Faster to just open the website</li>
-                        <li class="fragment">Unreliable Push/Updating mechanism</li>
+                        <li class="fragment">Unreliable Push messaging and self updating mechanism</li>
                         <li class="fragment">Subpar performance on Android WebViews</li>
                     </ul>
                     <aside class="notes">
@@ -196,7 +190,22 @@
 
                 <section>
                     <h2>Rendering Performance</h2>
-                    <h4>Demo of current rendering complexity</h4>
+
+                    <ul>
+                        <li>Certain properties slower than other <sup>[1]</sup></li>
+                        <li>3D transforms perform better than 2D transforms <sup>[2]</sup></li>
+                    </ul>
+
+                    <br/>
+                    <br/>
+                    <br/>
+
+                    <small class="left">
+                        <ol>
+                            <li><a href="http://www.html5rocks.com/en/tutorials/speed/css-paint-times/">html5rocks.com/en/tutorials/speed/css-paint-times</a></li>
+                            <li><a href="http://www.html5rocks.com/en/tutorials/speed/html5/">html5rocks.com/en/tutorials/speed/html5</a></li>
+                        </ol>
+                    </small>
                 </section>
 
                 <section>
@@ -212,21 +221,70 @@
                 </section>
 
                 <section>
-                    <h2>Learnings</h2>
+                    <h2>Improving Rendering Performance</h2>
                 </section>
 
                 <section>
                     <p>Avoid animating properties that cause reflows. Try to use their performant alternative.</p>
 
-                    <table class="h3 fragment">
+                    <table class="h3 fragment half centered">
                         <tr><td>Width</td><td>ScaleX</td></tr>
                         <tr><td>Height</td><td>ScaleY</td></tr>
                         <tr><td>Left</td><td>TranslateX</td></tr>
                         <tr><td>Top</td><td>TranslateY</td></tr>
                     </table>
-
                 </section>
 
+                <section>
+                    <h3>Backface Visibilty</h3>
+
+                    <div class="backface-container">
+                        <div class="backface visible">
+                            <pre>backface-visibiliy: visible</pre>
+                        </div>
+
+                        <div class="backface hidden">
+                            <pre>backface-visibiliy: hidden</pre>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <p>If you don't need to flip a 3D object, <br/> using backface-visibility is always better for performance</p>
+                    <br/>
+                </section>
+
+                <section>
+                    <p>Order of CSS properties matters. Can be used to our advantage.</p>
+                    <pre><code class="stretch" data-trim contenteditable>
+div {
+    // Scale it down
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20%;
+    height: 20%;
+
+    // Blur it
+    .Filter(blur(3px));
+
+    // Scale it up
+    .transform(translateZ(0) scale(5));
+}
+
+                    </code></pre>
+
+                    <small><a href="https://medium.com/what-i-learned-building/4364221d6d97">medium.com/what-i-learned-building/4364221d6d97</a></small>
+                </section>
+
+                <section>
+                    <h2>Problems</h2>
+
+                    <ul>
+                        <li>CSS filter performance is bad on Android. Even on Chrome.</li>
+                        <li>3D objects eat GPU memory proportional to their size.</li>
+                    </ul>
+                </section>
             </section>
 
             <!-- Example of nested vertical slides -->
