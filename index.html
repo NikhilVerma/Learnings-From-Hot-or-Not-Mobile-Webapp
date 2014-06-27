@@ -38,11 +38,6 @@
 
 <body id="body">
 
-    <!--
-                    <p>
-                        <small><a href="http://nikhil-verma.com">Nikhil Verma</a> / <a href="http://twitter.com/NikhilVerma">@NikhilVerma</a></small>
-                    </p> -->
-
     <div class="reveal">
 
         <!-- Any section element inside of this container is displayed as a slide -->
@@ -75,8 +70,8 @@
                 <section>
                     <h2>Relaunched in 2013 by Badoo for Mobile</h2>
                     <ul>
-                        <li>Developed for mobile web, wrapped for native</li>
-                        <li>Design had to take a back seat</li>
+                        <li>Developed for mobile web</li>
+                        <li>Used Cordova to release the native versions</li>
                     </ul>
 
                     <aside class="notes">
@@ -118,8 +113,8 @@
                 <section>
                     <h2>Use Cordova/Phonegap</h2>
                     <ul>
-                        <li class="fragment">If you can perfect the wrapper</li>
-                        <li class="fragment">Use it as little as possible</li>
+                        <li class="fragment">Primarily want to get rid of the browser UI</li>
+                        <li class="fragment">And you can perfect the wrapper</li>
                     </ul>
                     <aside class="notes">
                         Talk about wrapper incremental updates and it's slow speed when downloading manifest files.
@@ -129,8 +124,8 @@
                 <section>
                     <h2>Problems</h2>
                     <ul>
-                        <li class="fragment">Unreliable Push messaging and self updating mechanism</li>
-                        <li class="fragment">Subpar performance on Android WebViews</li>
+                        <li class="fragment">Unreliable Push messaging and updating mechanism</li>
+                        <li class="fragment">Subpar performance on Android WebView meant we needed a native app</li>
                     </ul>
                     <aside class="notes">
                         WebView performance meant a native android port was needed anyway. Stock android browser has changed now. to Chrome. But needs work. Cordova is dead. Long live Cordova
@@ -145,6 +140,46 @@
                     <img src="/img/google-chrome.png" class="fragment icon" />
                     <img src="/img/android-stock.png" class="fragment icon" />
                 </section>
+
+                <section>
+                    <h2>Safari</h2>
+
+                    <ul class="fragment clean">
+                        <li class="fragment good">Best overall performance</li>
+                        <li class="fragment bad">Harder to debug <sup>*</sup></li>
+                        <li class="fragment bad">Lazy rendering issues</li>
+                        <li class="fragment bad">Javascript bugs</li>
+                    </ul>
+
+                    <br/>
+                    <br/>
+
+                    <small class="fragment">* Use <a href="https://github.com/google/ios-webkit-debug-proxy">iOS Webkit Debug Proxy</a> to get around it</small>
+
+                    <aside class="notes">
+                        - Sleep/Wake bug
+                    </aside>
+                </section>
+
+                <section>
+                    <h2>Chrome</h2>
+
+                    <ul class="fragment clean">
+                        <li class="fragment good">Good overall performance</li>
+                        <li class="fragment good">Best debugging experience</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Stock Android</h2>
+
+                    <ul class="fragment clean">
+                        <li class="fragment bad">Laundry list of buggy behavior.</li>
+                        <li class="fragment bad">Very common in the mobile web space.</li>
+                        <li class="fragment bad">Hard to debug. Weinre helps but not by much.</li>
+                    </ul>
+                </section>
+
             </section>
 
             <section data-transition="concave">
@@ -255,7 +290,7 @@
                 </section>
 
                 <section>
-                    <p>Order of CSS properties matters. Can be used to our advantage.</p>
+                    <p>Order of CSS properties matters and can be used to our advantage.</p>
                     <pre><code class="stretch" data-trim contenteditable>
 div {
     // Scale it down
@@ -271,7 +306,6 @@ div {
     // Scale it up
     .transform(translateZ(0) scale(5));
 }
-
                     </code></pre>
 
                     <small><a href="https://medium.com/what-i-learned-building/4364221d6d97">medium.com/what-i-learned-building/4364221d6d97</a></small>
@@ -285,315 +319,50 @@ div {
                         <li>3D objects eat GPU memory proportional to their size.</li>
                     </ul>
                 </section>
-            </section>
 
-            <!-- Example of nested vertical slides -->
-            <section>
                 <section>
-                    <h2>Vertical Slides</h2>
-                    <p>
-                        Slides can be nested inside of other slides, try pressing <a href="#" class="navigate-down">down</a>.
-                    </p>
-                    <a href="#" class="image navigate-down">
-                        <img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-                    </a>
+                    <h2>DOM Performance</h2>
+
+                    <ul>
+                        <li>Lazy load elements if you can</li>
+                        <li>Render offscreen</li>
+                    </ul>
                 </section>
+
                 <section>
-                    <h2>Basement Level 1</h2>
-                    <p>Press down or up to navigate.</p>
+                    <h2>Storage Performance</h2>
+
+                    <ul>
+                        <li>LocalStorage is blocking and proportional to the stored data.</li>
+                        <li>Read everything at the app boot in memory. Write rarely.</li>
+                    </ul>
                 </section>
+
                 <section>
-                    <h2>Basement Level 2</h2>
-                    <p>Cornify</p>
-                    <a class="test" href="http://cornify.com">
-                        <img width="280" height="326" src="https://s3.amazonaws.com/hakim-static/reveal-js/cornify.gif" alt="Unicorn">
-                    </a>
-                </section>
-                <section>
-                    <h2>Basement Level 3</h2>
-                    <p>That's it, time to go back up.</p>
-                    <a href="#/2" class="image">
-                        <img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="-webkit-transform: rotate(180deg);">
-                    </a>
-                </section>
-            </section>
+                    <h2>Network Performance</h2>
+                    <p>Mobile networks have high latency, but decent speeds</p>
+                    <br/>
+                    <ul>
+                        <li>Bigger files and smaller numbers help.</li>
+                        <li>Use analytics to track loading of resources.</li>
+                        <li>Use sprites <sup>[1]</sup></li>
+                        <li>Minify JS</li>
+                    </ul>
 
-            <section>
-                <h2>Slides</h2>
-                <p>
-                    Not a coder? No problem. There's a fully-featured visual editor for authoring these, try it out at <a href="http://slid.es" target="_blank">http://slid.es</a>.
-                </p>
-            </section>
+                    <br/>
+                    <br/>
+                    <br/>
 
-            <section>
-                <h2>Point of View</h2>
-                <p>
-                    Press
-                    <strong>ESC</strong>to enter the slide overview.
-                </p>
-                <p>
-                    Hold down alt and click on any element to zoom in on it using <a href="http://lab.hakim.se/zoom-js">zoom.js</a>. Alt + click anywhere to zoom back out.
-                </p>
-            </section>
-
-            <section>
-                <h2>Works in Mobile Safari</h2>
-                <p>
-                    Try it out! You can swipe through the slides and pinch your way to the overview.
-                </p>
-            </section>
-
-            <section>
-                <h2>Marvelous Unordered List</h2>
-                <ul>
-                    <li>No order here</li>
-                    <li>Or here</li>
-                    <li>Or here</li>
-                    <li>Or here</li>
-                </ul>
-            </section>
-
-            <section>
-                <h2>Fantastic Ordered List</h2>
-                <ol>
-                    <li>One is smaller than...</li>
-                    <li>Two is smaller than...</li>
-                    <li>Three!</li>
-                </ol>
-            </section>
-
-            <section data-markdown>
-                <script type="text/template">
-                ##
-                Markdown support
-
-                 For those of you who like that sort of thing.Instructions and a bit more info available[here](https: //github.com/hakimel/reveal.js#markdown).
-
-                    ``` < section data - markdown > ##Markdown support
-
-                    For those of you who like that sort of thing.Instructions and a bit more info available[here](https: //github.com/hakimel/reveal.js#markdown).
-                        < /section>
-                        ```
-                </script>
-            </section>
-
-            <section id="transitions">
-                <h2>Transition Styles</h2>
-                <p>
-                    You can select from different transitions, like:
-                    <br>
-                    <a href="?transition=cube#/transitions">Cube</a> -
-                    <a href="?transition=page#/transitions">Page</a> -
-                    <a href="?transition=concave#/transitions">Concave</a> -
-                    <a href="?transition=zoom#/transitions">Zoom</a> -
-                    <a href="?transition=linear#/transitions">Linear</a> -
-                    <a href="?transition=fade#/transitions">Fade</a> -
-                    <a href="?transition=none#/transitions">None</a> -
-                    <a href="?#/transitions">Default</a>
-                </p>
-            </section>
-
-            <section id="themes">
-                <h2>Themes</h2>
-                <p>
-                    Reveal.js comes with a few themes built in:
-                    <br>
-                    <a href="?#/themes">Default</a> -
-                    <a href="?theme=sky#/themes">Sky</a> -
-                    <a href="?theme=beige#/themes">Beige</a> -
-                    <a href="?theme=simple#/themes">Simple</a> -
-                    <a href="?theme=serif#/themes">Serif</a> -
-                    <a href="?theme=night#/themes">Night</a>
-                    <br>
-                    <a href="?theme=moon#/themes">Moon</a> -
-                    <a href="?theme=solarized#/themes">Solarized</a>
-                </p>
-                <p>
-                    <small>
-                        * Theme demos are loaded after the presentation which leads to flicker. In production you should load your theme in the
-                        <code>&lt;head&gt;</code>using a
-                        <code>&lt;link&gt;</code>.
-                    </small>
-                </p>
-            </section>
-
-            <section>
-                <h2>Global State</h2>
-                <p>
-                    Set
-                    <code>data-state="something"</code>on a slide and
-                    <code>"something"</code>
-                    will be added as a class to the document element when the slide is open. This lets you apply broader style changes, like switching the background.
-                </p>
-            </section>
-
-            <section data-state="customevent">
-                <h2>Custom Events</h2>
-                <p>
-                    Additionally custom events can be triggered on a per slide basis by binding to the
-                    <code>data-state</code>name.
-                </p>
-                <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-Reveal.addEventListener( 'customevent', function() {
-    console.log( '"customevent" has fired' );
-} );
-                    </code></pre>
-            </section>
-
-            <section>
-                <section data-background="#007777">
-                    <h2>Slide Backgrounds</h2>
-                    <p>
-                        Set
-                        <code>data-background="#007777"</code>on a slide to change the full page background to the given color. All CSS color formats are supported.
-                    </p>
-                    <a href="#" class="image navigate-down">
-                        <img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-                    </a>
-                </section>
-                <section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png">
-                    <h2>Image Backgrounds</h2>
-                    <pre><code>&lt;section data-background="image.png"&gt;</code></pre>
-                </section>
-                <section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" data-background-repeat="repeat" data-background-size="100px">
-                    <h2>Repeated Image Backgrounds</h2>
-                    <pre><code style="word-wrap: break-word;">&lt;section data-background="image.png" data-background-repeat="repeat" data-background-size="100px"&gt;</code></pre>
-                </section>
-            </section>
-
-            <section data-transition="linear" data-background="#4d7e65" data-background-transition="slide">
-                <h2>Background Transitions</h2>
-                <p>
-                    Pass reveal.js the
-                    <code>backgroundTransition: 'slide'</code>config argument to make backgrounds slide rather than fade.
-                </p>
-            </section>
-
-            <section data-transition="linear" data-background="#8c4738" data-background-transition="slide">
-                <h2>Background Transition Override</h2>
-                <p>
-                    You can override background transitions per slide by using
-                    <code>data-background-transition="slide"</code>.
-                </p>
-            </section>
-
-            <section>
-                <h2>Clever Quotes</h2>
-                <p>
-                    These guys come in two forms, inline:
-                    <q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-                        &ldquo;The nice thing about standards is that there are so many to choose from&rdquo;</q>and block:
-                </p>
-                <blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-                    &ldquo;For years there has been a theory that millions of monkeys typing at random on millions of typewriters would reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.&rdquo;
-                </blockquote>
-            </section>
-
-            <section>
-                <h2>Pretty Code</h2>
-                <pre><code data-trim contenteditable>
-function linkify( selector ) {
-  if( supports3DTransforms ) {
-
-    var nodes = document.querySelectorAll( selector );
-
-    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
-      var node = nodes[i];
-
-      if( !node.className ) {
-        node.className += ' roll';
-      }
-    }
-  }
-}
-                    </code></pre>
-                <p>Courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
-            </section>
-
-            <section>
-                <h2>Intergalactic Interconnections</h2>
-                <p>
-                    You can link between slides internally,
-                    <a href="#/2/3">like this</a>.
-                </p>
-            </section>
-
-            <section>
-                <section id="fragments">
-                    <h2>Fragmented Views</h2>
-                    <p>Hit the next arrow...</p>
-                    <p class="fragment">... to step through ...</p>
-                    <ol>
-                        <li class="fragment">
-                            <code>any type</code>
-                        </li>
-                        <li class="fragment">
-                            <em>of view</em>
-                        </li>
-                        <li class="fragment">
-                            <strong>fragments</strong>
-                        </li>
-                    </ol>
-
-                    <aside class="notes">
-                        This slide has fragments which are also stepped through in the notes window.
-                    </aside>
-                </section>
-                <section>
-                    <h2>Fragment Styles</h2>
-                    <p>There's a few styles of fragments, like:</p>
-                    <p class="fragment grow">grow</p>
-                    <p class="fragment shrink">shrink</p>
-                    <p class="fragment roll-in">roll-in</p>
-                    <p class="fragment fade-out">fade-out</p>
-                    <p class="fragment highlight-red">highlight-red</p>
-                    <p class="fragment highlight-green">highlight-green</p>
-                    <p class="fragment highlight-blue">highlight-blue</p>
-                    <p class="fragment current-visible">current-visible</p>
-                    <p class="fragment highlight-current-blue">highlight-current-blue</p>
+                    <small>[1] - <a href="https://github.com/Ensighten/spritesmith">SpriteSmith</a></small>
                 </section>
             </section>
 
             <section>
-                <h2>Spectacular image!</h2>
-                <a class="image" href="http://lab.hakim.se/meny/" target="_blank">
-                    <img width="320" height="299" src="http://s3.amazonaws.com/hakim-static/portfolio/images/meny.png" alt="Meny">
-                </a>
-            </section>
-
-            <section>
-                <h2>Export to PDF</h2>
-                <p>Presentations can be <a href="https://github.com/hakimel/reveal.js#pdf-export">exported to PDF</a>, below is an example that's been uploaded to SlideShare.</p>
-                <iframe id="slideshare" src="http://www.slideshare.net/slideshow/embed_code/13872948" width="455" height="356" style="margin:0;overflow:hidden;border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen></iframe>
-                <script>
-                document.getElementById('slideshare').attributeName = 'allowfullscreen';
-                </script>
-            </section>
-
-            <section>
-                <h2>Take a Moment</h2>
+                <h1>Thanks!</h1>
                 <p>
-                    Press b or period on your keyboard to enter the 'paused' mode. This mode is helpful when you want to take distracting slides off the screen during a presentation.
+                    <small><a href="http://nikhil-verma.com">Nikhil Verma</a> / <a href="http://twitter.com/NikhilVerma">@NikhilVerma</a></small>
                 </p>
             </section>
-
-            <section>
-                <h2>Stellar Links</h2>
-                <ul>
-                    <li><a href="http://slid.es">Try the online editor</a>
-                    </li>
-                    <li><a href="https://github.com/hakimel/reveal.js">Source code on GitHub</a>
-                    </li>
-                    <li><a href="http://twitter.com/hakimel">Follow me on Twitter</a>
-                    </li>
-                </ul>
-            </section>
-
-            <section>
-                <h1>THE END</h1>
-                <h3>BY Hakim El Hattab / hakim.se</h3>
-            </section>
-
         </div>
 
     </div>

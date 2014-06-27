@@ -81,6 +81,14 @@ $slideheight: 700;
         text-align: left;
     }
 
+    li {
+        padding-bottom: 0.3em;
+    }
+
+    ul.clean {
+        list-style: none;
+    }
+
     section {
         img {
             border: 0;

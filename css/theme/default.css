@@ -1769,6 +1769,10 @@ body {
   display: block; }
 #body .reveal .left {
   text-align: left; }
+#body .reveal li {
+  padding-bottom: 0.3em; }
+#body .reveal ul.clean {
+  list-style: none; }
 #body .reveal section img {
   border: 0;
   margin: 0;
