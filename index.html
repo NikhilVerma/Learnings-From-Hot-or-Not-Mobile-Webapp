@@ -346,7 +346,6 @@ div {
                         <li>Bigger files and smaller numbers help.</li>
                         <li>Use analytics to track loading of resources.</li>
                         <li>Use sprites <sup>[1]</sup></li>
-                        <li>Minify JS</li>
                     </ul>
 
                     <br/>
@@ -358,10 +357,84 @@ div {
             </section>
 
             <section>
-                <h1>Thanks!</h1>
-                <p>
-                    <small><a href="http://nikhil-verma.com">Nikhil Verma</a> / <a href="http://twitter.com/NikhilVerma">@NikhilVerma</a></small>
-                </p>
+                <section>
+                    <h1>Bugs</h1>
+                </section>
+
+                <section>
+                    <ul>
+                        <li class="fragment">Some versions say they support standard proprties but they don't! <sup>[1]</sup></li>
+                        <li class="fragment">Need hacks to get touchmove to work <sup>[2]</sup></li>
+                        <li class="fragment">CSS3 transforms stop working after a certain count on Stock Android</li>
+                        <li class="fragment">Lazy repaint issues on iOS Safari. <sup>[3]</sup></li>
+                    </ul>
+
+                    <br/>
+                    <br/>
+                    <br/>
+
+                    <small class="fragment">
+                        [1] - <a href="https://github.com/Modernizr/Modernizr/issues/897">github.com/Modernizr/Modernizr/issues/897</a>
+                        <br/>
+                        [2] - <a href="https://code.google.com/p/android/issues/detail?id=5491">code.google.com/p/android/issues/detail?id=5491</a>
+                        <br/>
+                        [3] - <a href="http://java.dzone.com/articles/safaris-lazy-repaint-bug-ios-7">java.dzone.com/articles/safaris-lazy-repaint-bug-ios-7</a>
+                    </small>
+                </section>
+            </section>
+
+            <section>
+                <section>
+                    <h1>Debugging</h1>
+                </section>
+
+                <section>
+                    <h2>Remote Debugging using Weinre</h2>
+
+                    <a href="http://techblog.badoo.com/blog/2013/11/18/5-advanced-javascript-and-web-debugging-techniques-you-should-know-about/#weinre">
+                        <img src="/img/weinre.png" />
+                    </a>
+
+                    <br/>
+                    <br/>
+
+                    <small>
+                        <a href="http://techblog.badoo.com/blog/2013/11/18/5-advanced-javascript-and-web-debugging-techniques-you-should-know-about/#weinre">techblog.badoo.com/blog/2013/11/18/5-advanced-javascript-and-web-debugging-techniques-you-should-know-about</a>
+                    </small>
+                </section>
+
+                <section>
+                    <h2>On-Screen Console</h2>
+                    <img class="stretch" src="/img/debug-console.png" />
+                </section>
+
+                <section>
+                    <h2>Per-Developer Environments</h2>
+                </section>
+
+                <section>
+                    <h2>Mapping remote scripts locally</h2>
+                    <br/>
+
+                    <blockquote class="fragment">
+                        Scenario: You've just released a major feature and there is a bug which seems easy to replicate on production.
+                    </blockquote>
+                </section>
+            </section>
+
+            <section>
+                <section>
+                    <h1>Conclusion</h1>
+                    <br/>
+                    <p>It's now possible to make good looking, performant mobile web applications. <br/> Certain browsers still have some catching up to do, but their performance is only going to improve.</p>
+                </section>
+
+                <section>
+                    <h1>Thanks!</h1>
+                    <p>
+                        <small><a href="http://nikhil-verma.com">Nikhil Verma</a> / <a href="http://twitter.com/NikhilVerma">@NikhilVerma</a></small>
+                    </p>
+                </section>
             </section>
         </div>
 
@@ -380,8 +453,8 @@ div {
         center: true,
         transitionSpeed: 'fast',
 
-        width: window.innerWidth,
-        height: window.innerHeight,
+        width: window.innerWidth * 1.3,
+        height: window.innerHeight * 1.3,
 
         theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
         transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
