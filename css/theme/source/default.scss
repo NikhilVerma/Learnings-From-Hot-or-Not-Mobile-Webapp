@@ -47,11 +47,11 @@ $slideheight: 700;
 
 @include keyframes(rotate3d) {
     0% {
-        @include transform(perspective(5000) rotate3d(0, 1, 0, 0deg));
+        @include transform(rotate3d(0, 1, 0, 0deg));
         @include transform-origin(50% 50%);
     }
     100% {
-        @include transform(perspective(5000) rotate3d(0, 1, 0, 360deg));
+        @include transform(rotate3d(0, 1, 0, 360deg));
         @include transform-origin(50% 50%);
     }
 }
@@ -71,6 +71,10 @@ $slideheight: 700;
 
     .h4 {
         @extend h4;
+    }
+
+    h2 {
+        margin-bottom: 0.5em;
     }
 
     .block {
@@ -132,9 +136,25 @@ $slideheight: 700;
         }
     }
 
+    li.good, li.bad {
+        padding: 0.5em 1em;
+        margin: 0 0 0.5em 0;
+        border-radius: 3em;
+        background: #60952b;
+
+        span {
+            margin-right: 0.5em;
+            display: inline-block;
+        }
+    }
+
+    li.bad {
+        background: #952b2b;
+    }
 
     .backface-container {
         @include clearfix;
+        @include perspective(2000);
     }
 
     .backface {

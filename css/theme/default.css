@@ -26,8 +26,6 @@ html, body, .reveal div, .reveal span, .reveal applet, .reveal object, .reveal i
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 100%;
-  font: inherit;
   vertical-align: baseline; }
 
 .reveal article, .reveal aside, .reveal details, .reveal figcaption, .reveal figure,
@@ -1727,27 +1725,27 @@ body {
 
 @-webkit-keyframes rotate3d {
   0% {
-    -webkit-transform: perspective(5000) rotate3d(0, 1, 0, 0deg);
+    -webkit-transform: rotate3d(0, 1, 0, 0deg);
     -webkit-transform-origin: 50% 50%; }
 
   100% {
-    -webkit-transform: perspective(5000) rotate3d(0, 1, 0, 360deg);
+    -webkit-transform: rotate3d(0, 1, 0, 360deg);
     -webkit-transform-origin: 50% 50%; } }
 @-moz-keyframes rotate3d {
   0% {
-    -moz-transform: perspective(5000) rotate3d(0, 1, 0, 0deg);
+    -moz-transform: rotate3d(0, 1, 0, 0deg);
     -moz-transform-origin: 50% 50%; }
 
   100% {
-    -moz-transform: perspective(5000) rotate3d(0, 1, 0, 360deg);
+    -moz-transform: rotate3d(0, 1, 0, 360deg);
     -moz-transform-origin: 50% 50%; } }
 @keyframes rotate3d {
   0% {
-    -webkit-transform: perspective(5000) rotate3d(0, 1, 0, 0deg);
-    -moz-transform: perspective(5000) rotate3d(0, 1, 0, 0deg);
-    -ms-transform: perspective(5000) rotate3d(0, 1, 0, 0deg);
-    -o-transform: perspective(5000) rotate3d(0, 1, 0, 0deg);
-    transform: perspective(5000) rotate3d(0, 1, 0, 0deg);
+    -webkit-transform: rotate3d(0, 1, 0, 0deg);
+    -moz-transform: rotate3d(0, 1, 0, 0deg);
+    -ms-transform: rotate3d(0, 1, 0, 0deg);
+    -o-transform: rotate3d(0, 1, 0, 0deg);
+    transform: rotate3d(0, 1, 0, 0deg);
     -webkit-transform-origin: 50% 50%;
     -moz-transform-origin: 50% 50%;
     -ms-transform-origin: 50% 50%;
@@ -1755,16 +1753,18 @@ body {
     transform-origin: 50% 50%; }
 
   100% {
-    -webkit-transform: perspective(5000) rotate3d(0, 1, 0, 360deg);
-    -moz-transform: perspective(5000) rotate3d(0, 1, 0, 360deg);
-    -ms-transform: perspective(5000) rotate3d(0, 1, 0, 360deg);
-    -o-transform: perspective(5000) rotate3d(0, 1, 0, 360deg);
-    transform: perspective(5000) rotate3d(0, 1, 0, 360deg);
+    -webkit-transform: rotate3d(0, 1, 0, 360deg);
+    -moz-transform: rotate3d(0, 1, 0, 360deg);
+    -ms-transform: rotate3d(0, 1, 0, 360deg);
+    -o-transform: rotate3d(0, 1, 0, 360deg);
+    transform: rotate3d(0, 1, 0, 360deg);
     -webkit-transform-origin: 50% 50%;
     -moz-transform-origin: 50% 50%;
     -ms-transform-origin: 50% 50%;
     -o-transform-origin: 50% 50%;
     transform-origin: 50% 50%; } }
+#body .reveal h2, #body .reveal .h2 {
+  margin-bottom: 0.5em; }
 #body .reveal .block {
   display: block; }
 #body .reveal .left {
@@ -1799,10 +1799,24 @@ body {
   #body .reveal table td {
     width: 50%;
     text-align: center; }
-#body .reveal .backface-container:after {
-  content: "";
-  display: table;
-  clear: both; }
+#body .reveal li.good, #body .reveal li.bad {
+  padding: 0.5em 1em;
+  margin: 0 0 0.5em 0;
+  border-radius: 3em;
+  background: #60952b; }
+  #body .reveal li.good span, #body .reveal li.bad span {
+    margin-right: 0.5em;
+    display: inline-block; }
+#body .reveal li.bad {
+  background: #952b2b; }
+#body .reveal .backface-container {
+  -webkit-perspective: 2000;
+  -moz-perspective: 2000;
+  perspective: 2000; }
+  #body .reveal .backface-container:after {
+    content: "";
+    display: table;
+    clear: both; }
 #body .reveal .backface {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
