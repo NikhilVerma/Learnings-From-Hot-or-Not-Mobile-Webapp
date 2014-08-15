@@ -47,12 +47,20 @@
                     <br/> <a target="_blank" href="https://m.hotornot.com/" class="hon-logo">Hot or Not</a>
                 </h1>
                 <h3>What we learned from building a complex mobile web application</h3>
+
+                <br/><br/><br/>
+                <h4><a href="https://twitter.com/NikhilVerma">@NikhilVerma</a></h4>
             </section>
 
             <section data-transition="concave">
                 <section>
                     <h1>Brief History</h1>
                     <aside class="notes">
+                        Started off as a technical solution to a disagreement about the attractiveness of a passing by woman betwen two silicon valley engineers.
+                        <br/><br/>
+                        Normal people would have shrugged and walked off, but engineers stretch it to the logical conclusion
+                        and made hot or not.
+                        <br/><br/>
                         Hot or Not was launched in 2000 as a rating site. Had features like MeetMe and Hot Lists.
                     </aside>
                 </section>
@@ -63,8 +71,23 @@
                 </section>
 
                 <section>
-                    <h2>2010</h2>
+                    <h2>2009</h2>
                     <img src="img/hotornot-second.png" class="stretch" alt="Second release of Hot or Not" />
+                </section>
+
+                <section>
+                    <h2>2009</h2>
+                    <img src="img/hotornot-iphone.jpg" class="stretch" alt="iPhone release" />
+                </section>
+
+<!--                 <section>
+                    <h2>2014</h2>
+                    <img src="img/hotornot-today.png" class="stretch" alt="Third release of Hot or Not" />
+                </section> -->
+
+                <section>
+                    <h2>Mobile 2014</h2>
+                    <img src="img/hotornot-mobile-today.png" class="stretch" alt="Third release of Hot or Not" />
                 </section>
 
                 <section>
@@ -107,28 +130,30 @@
                 </section>
 
                 <section>
+                    <h2>Problems</h2>
+                    <ul>
+                        <li class="fragment">Unreliable Push messaging</li>
+                        <li class="fragment">Slow self-updating mechanism</li>
+                        <li class="fragment">Bad performance on older Android WebViews</li>
+                    </ul>
+                    <aside class="notes">
+                        WebView performance meant a native android port was needed anyway.<br/>
+                        Stock android browser has changed now. to Chrome. But needs work.<br/>
+                        WebViews can't upload files recently<br/>
+                        Keyboard prev, next hiding issues
+                    </aside>
+                </section>
+
+                <section>
                     <h2>Use Cordova/Phonegap</h2>
                     <p>when you</p>
 
                     <ul>
                         <li class="fragment">Primarily want to get rid of the browser UI</li>
-                        <li class="fragment">And you can perfect the wrapper</li>
+                        <li class="fragment">Can handle the erratic behavior of webviews</li>
                     </ul>
-                    <aside class="notes">
-                        Talk about wrapper incremental updates and it's slow speed when downloading manifest files.
-                    </aside>
                 </section>
 
-                <section>
-                    <h2>Problems</h2>
-                    <ul>
-                        <li class="fragment">Unreliable Push messaging and updating mechanism</li>
-                        <li class="fragment">Subpar performance on Android WebView meant we needed a native app</li>
-                    </ul>
-                    <aside class="notes">
-                        WebView performance meant a native android port was needed anyway. Stock android browser has changed now. to Chrome. But needs work. Cordova is dead. Long live Cordova
-                    </aside>
-                </section>
             </section>
 
             <section data-transition="concave">
